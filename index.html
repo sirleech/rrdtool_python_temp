@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		
+			function reloadImg(id) {
+				 var obj = document.getElementById(id);
+				 var src = obj.src;
+				 var pos = src.indexOf('?');
+				 if (pos >= 0) {
+						src = src.substr(0, pos);
+				 }
+				 var date = new Date();
+				 obj.src = src + '?v=' + date.getTime();
+				 return false;
+			}	
+			
+			function refresh()
+			{
+				reloadImg("realtime");
+				t=setTimeout("refresh()",1000);
+			}
+			
+			var t=setTimeout("refresh()",1000);
+		</script>
+	
+	</head>
+
+	<body>
+	
+			<img id="realtime" src="output.png"/>
+	</body>
+
+</html>
