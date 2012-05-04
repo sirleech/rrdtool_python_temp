@@ -16,4 +16,4 @@ while (1):
 		            '--end', str(now),
 				        'DEF:myspeed=temperature.rrd:temp:AVERAGE',
 		            'LINE2:myspeed#FF0000')              
-	time.sleep(1)
+	time.sleep(15)
