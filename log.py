@@ -10,7 +10,7 @@ while (1):
 	rrdtool.update('temperature.rrd',value)
 	print temp	
 	now = int(time.time())
-	range = 240
+	range = 9000
 	rrdtool.graph('output.png',
 		            '--start', str(now-range), 
 		            '--end', str(now),
