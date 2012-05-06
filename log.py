@@ -9,25 +9,44 @@ def printTime():
 	print now.strftime("%Y-%m-%d %H:%M")
 
 while (1):
-	#this is a special letter for "now" in UNIX time
+
+	now = int(time.time())
+	# temperature
 	value = 'N:'
-	
-	# insert your temp reading here
-	temp = random.randrange(17,29)	
+	temp = random.uniform(17,29)	
 	value += str(temp)
 	rrdtool.update('temperature.rrd',value)
-	print ('tempC:'),	
-	print (temp),
-	printTime()	
-	now = int(time.time())
 	
-	# show 15 minutes
+	# graph temp
 	range = 9000
 	rrdtool.graph('temperature.png',
 		            '--start', str(now-range), 
 		            '--end', str(now),
           		    'DEF:myspeed=temperature.rrd:temp:AVERAGE',
-		            'LINE2:myspeed#FF0000')              
+		            'LINE2:myspeed#FF0000')   
+	
+	# pH
+	value = 'N:'
+	pH = random.uniform(7,8)	
+	value += str(pH)
+	rrdtool.update('ph.rrd',value)
+	
+	# graph pH
+	range = 9000
+	rrdtool.graph('pH.png',
+		            '--start', str(now-range), 
+		            '--end', str(now),
+          		    'DEF:myspeed=ph.rrd:temp:AVERAGE',
+		            'LINE2:myspeed#FF0000')  
+	
+	# terminal output
+	print ('tempC:'),	
+	print (temp),
+	print ('pH:'),	
+	print (pH),
+	printTime()	
+	
+	           
 	time.sleep(15)
 
 

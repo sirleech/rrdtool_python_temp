@@ -16,7 +16,8 @@
 			
 			function refresh()
 			{
-				reloadImg("realtime");
+				reloadImg("temperature");
+				reloadImg("pH");
 				t=setTimeout("refresh()",15000);
 			}
 			
@@ -28,7 +29,9 @@
 	<body>
 	
 			<h2>Temperature</h2>
-			<img id="realtime" src="temperature.png"/>
+			<img id="temperature" src="temperature.png"/>
+			<h2>pH</h2>
+			<img id="pH" src="pH.png"/>
 	</body>
 
 </html>
