@@ -23,7 +23,7 @@ while (1):
 	
 	# show 15 minutes
 	range = 9000
-	rrdtool.graph('output.png',
+	rrdtool.graph('temperature.png',
 		            '--start', str(now-range), 
 		            '--end', str(now),
           		    'DEF:myspeed=temperature.rrd:temp:AVERAGE',
