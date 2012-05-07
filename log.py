@@ -22,6 +22,8 @@ while (1):
 	rrdtool.graph('temperature.png',
 		            '--start', str(now-range), 
 		            '--end', str(now),
+		            '--title','Temperature (degrees c)',
+		            '--width','800',
           		    'DEF:myspeed=temperature.rrd:temp:AVERAGE',
 		            'LINE2:myspeed#FF0000')   
 	
@@ -36,6 +38,8 @@ while (1):
 	rrdtool.graph('pH.png',
 		            '--start', str(now-range), 
 		            '--end', str(now),
+		            '--title','pH',
+		            '--width','800',
           		    'DEF:myspeed=ph.rrd:temp:AVERAGE',
 		            'LINE2:myspeed#FF0000')  
 	
