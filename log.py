@@ -2,12 +2,8 @@
 import rrdtool
 import random
 import time
-import datetime
 import serial
-
-def printTime():
-	now = datetime.datetime.now()
-	print now.strftime("%Y-%m-%d %H:%M")
+import utils
 
 
 while (1):
@@ -16,11 +12,13 @@ while (1):
 
 	now = int(time.time())
 	# temperature
-	ser = serial.Serial('/dev/ttyUSB0', 38400)
-	tempstring = ser.readline()
+	#ser = serial.Serial('/dev/ttyUSB0', 38400)
+	#tempstring = ser.readline()
 	value = 'N:'
-	temp = float(tempstring)
-	ser.close()	
+	#temp = float(tempstring)
+	#ser.close()	
+	
+	temp = 26
 	value += str(temp)
 	rrdtool.update('temperature.rrd',value)
 	
@@ -53,7 +51,7 @@ while (1):
 	print (temp),
 	print ('pH:'),	
 	print (pH),
-	printTime()	
+	utils.printTime()	
 	
 	           
 	time.sleep(15)

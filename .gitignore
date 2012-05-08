@@ -2,3 +2,4 @@
 temperature.rrd
 *.png
 *.rrd
+*.pyc
