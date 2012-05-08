@@ -11,6 +11,8 @@ def printTime():
 
 
 while (1):
+	# 12 hours
+	range = 43200
 
 	now = int(time.time())
 	# temperature
@@ -23,7 +25,6 @@ while (1):
 	rrdtool.update('temperature.rrd',value)
 	
 	# graph temp
-	range = 9000
 	rrdtool.graph('temperature.png',
 		            '--start', str(now-range), 
 		            '--end', str(now),
@@ -39,7 +40,6 @@ while (1):
 	rrdtool.update('ph.rrd',value)
 	
 	# graph pH
-	range = 9000
 	rrdtool.graph('pH.png',
 		            '--start', str(now-range), 
 		            '--end', str(now),
