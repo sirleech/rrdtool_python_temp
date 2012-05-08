@@ -3,17 +3,22 @@ import rrdtool
 import random
 import time
 import datetime
+import serial
 
 def printTime():
 	now = datetime.datetime.now()
 	print now.strftime("%Y-%m-%d %H:%M")
 
+
 while (1):
 
 	now = int(time.time())
 	# temperature
+	ser = serial.Serial('/dev/ttyUSB0', 38400)
+	tempstring = ser.readline()
 	value = 'N:'
-	temp = random.uniform(17,29)	
+	temp = float(tempstring)
+	ser.close()	
 	value += str(temp)
 	rrdtool.update('temperature.rrd',value)
 	
