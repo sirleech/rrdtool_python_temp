@@ -9,3 +9,7 @@ rrdtool create temperature.rrd --step 30 \
   RRA:MAX:0.5:12:2400 \
   RRA:AVERAGE:0.5:12:2400  
 
+# initialise sensors dir and json files  
+mkdir sensors
+touch sensors/temperature.json
+
