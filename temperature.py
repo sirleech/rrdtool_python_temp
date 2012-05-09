@@ -1,29 +1,31 @@
 #!/usr/bin/env python
 
-import serial
-import rrdtool
-import time
-
+# Switch to False when a real Arduino is connected
 mock = True
 
 def getValue():
 	
 	if (mock == False):
+		import serial
 		ser = serial.Serial('/dev/ttyUSB0', 38400)
 		tempstring = ser.readline()
 		temp = float(tempstring)
 		ser.close()	
 	else:
-		temp = 26	
+		import random
+		temp = random.uniform(20, 27)	
 	
 	return temp
 	
-def makePngGraph(range):
+def makePngGraph(graphTimeRange):
+	import rrdtool
+	import time
+	
 	# graph temp
 	nowUnixTime = int(time.time())
 	
 	rrdtool.graph('temperature.png',
-		            '--start', str(nowUnixTime-range), 
+		            '--start', str(nowUnixTime-graphTimeRange), 
 		            '--end', str(nowUnixTime),
 		            '--title','Temperature (degrees c)',
 		            '--width','800',
