@@ -16,9 +16,9 @@ while (1):
 	try:
 		temp = temperature.getValue()
 		utils.logDataPoint("temperature.rrd",temp)
-		temperature.makePngGraph(twelveHours,'web/temperature-12hrs.png')
-		temperature.makePngGraph(twoHours,'web/temperature-2hrs.png')
-		temperature.makePngGraph(oneWeek,'web/temperature-1wk.png')
+		temperature.makePngGraph('Temp C 12 Hours',twelveHours,'web/temperature-12hrs.png')
+		temperature.makePngGraph('Temp C 2 Hours',twoHours,'web/temperature-2hrs.png')
+		temperature.makePngGraph('Temp C 1 Week',oneWeek,'web/temperature-1wk.png')
 		temperature.exportToJson(temp)
 		
 		# terminal output

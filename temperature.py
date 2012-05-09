@@ -37,7 +37,7 @@ def exportToJson(temperature):
 	f.write(json.dumps(reading))
 	f.close()
 	
-def makePngGraph(graphTimeRange,outfile):
+def makePngGraph(title,graphTimeRange,outfile):
 	import rrdtool
 	import time
 	
@@ -47,7 +47,7 @@ def makePngGraph(graphTimeRange,outfile):
 	rrdtool.graph(outfile,
 		            '--start', str(nowUnixTime-graphTimeRange), 
 		            '--end', str(nowUnixTime),
-		            '--title','Temperature (degrees c)',
-		            '--width','700',
+		            '--title',title,
+		            '--width','400',
           		    'DEF:myspeed=temperature.rrd:temp:AVERAGE',
 		            'LINE2:myspeed#FF0000')   
