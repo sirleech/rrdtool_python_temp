@@ -1,4 +1,4 @@
-// Project Seven - temperature
+// 10K Thermistor circuit hooked up to Analog 0
 //
 
 int a;
