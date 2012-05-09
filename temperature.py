@@ -33,14 +33,14 @@ def getValue():
 	
 	return temp
 	
-def makePngGraph(graphTimeRange):
+def makePngGraph(graphTimeRange,outfile):
 	import rrdtool
 	import time
 	
 	# graph temp
 	nowUnixTime = int(time.time())
 	
-	rrdtool.graph('web/temperature.png',
+	rrdtool.graph(outfile,
 		            '--start', str(nowUnixTime-graphTimeRange), 
 		            '--end', str(nowUnixTime),
 		            '--title','Temperature (degrees c)',
