@@ -5,7 +5,10 @@ mock = False
 
 def getSerialSensorValue():
 		import serial
-		ser = serial.Serial('/dev/ttyUSB0', 38400)
+		import time
+		ser = serial.Serial('/dev/ttyUSB1', 38400)
+		ser.write('H')
+		time.sleep(.5)
 		valueString = ser.readline()
 		ser.close()		
 		return float(valueString)
