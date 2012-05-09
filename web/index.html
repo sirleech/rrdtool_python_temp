@@ -16,7 +16,9 @@
 			
 			function refresh()
 			{
-				reloadImg("temperature");
+				reloadImg("temperature-2hrs");
+				reloadImg("temperature-12hrs");
+				reloadImg("temperature-1wk");
 				t=setTimeout("refresh()",15000);
 			}
 			
@@ -27,9 +29,9 @@
 
 	<body>
 	
-			<img id="temperature" src="temperature-2hrs.png"/>2 hours
-			<img id="temperature" src="temperature-12hrs.png"/>12 hours
-			<img id="temperature" src="temperature-1wk.png"/>1 week
+			<img id="temperature-2hrs" src="temperature-2hrs.png"/>2 hours
+			<img id="temperature-12hrs" src="temperature-12hrs.png"/>12 hours
+			<img id="temperature-1wk" src="temperature-1wk.png"/>1 week
 			<br/>
 			
 	</body>
