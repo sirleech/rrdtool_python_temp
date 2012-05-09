@@ -11,7 +11,7 @@
 def getTimeString():
 	import datetime
 	now = datetime.datetime.now()
-	return now.strftime("%Y-%m-%d %H:%M")
+	return now.strftime("%Y-%m-%d %H:%M:%S")
 
 ##################################################
 #
