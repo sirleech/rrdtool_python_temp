@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# create temperature and pH databases
+# create databases
 
 rrdtool create temperature.rrd --step 30 \
   DS:temp:GAUGE:600:-273:5000 \

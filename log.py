@@ -24,12 +24,11 @@ while (1):
 		# terminal output
 		print utils.getTimeString(),'| tempC:',temp
 		
-		# sleep
-		
 	except Exception as e:
 		# terminal output
 		print utils.getTimeString(), e
 	
+	# sleep
 	time.sleep(loggingInterval)
 
 		
