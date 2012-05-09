@@ -1,15 +1,9 @@
 #!/usr/bin/env python
 
 # Switch to False when a real Arduino is connected
-mock = True
+mock = False
 
-def exportToJson(temperature):
-	import json
-	import utils
-	f = open('sensors/temperature.json','r+')
-	string = '{"temperature":"' + str(temperature) + '","lastUpdated":' + '"' + utils.getTimeString() + '"}'
-	f.write(string)
-	f.close()
+
 
 def getValue():
 	
@@ -25,7 +19,6 @@ def getValue():
 					ser = serial.Serial('/dev/ttyUSB0', 38400)
 					tempstring = ser.readline()
 					temp = float(tempstring)
-					exportToJson(temp)
 					ser.close()
 					read = True	
 				except serial.SerialException as e:
@@ -39,9 +32,15 @@ def getValue():
 	else:
 		import random
 		temp = random.uniform(20, 27)	
-		exportToJson(temp)
 	
 	return temp
+	
+def exportToJson(temperature):
+	import utils
+	f = open('sensors/temperature.json','r+')
+	string = '{"temperature":"' + str(temperature) + '","lastUpdated":' + '"' + utils.getTimeString() + '"}'
+	f.write(string)
+	f.close()
 	
 def makePngGraph(graphTimeRange,outfile):
 	import rrdtool

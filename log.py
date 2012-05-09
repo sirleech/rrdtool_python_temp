@@ -20,6 +20,7 @@ while (1):
 		temperature.makePngGraph(twelveHours,'web/temperature-12hrs.png')
 		temperature.makePngGraph(twoHours,'web/temperature-2hrs.png')
 		temperature.makePngGraph(oneWeek,'web/temperature-1wk.png')
+		temperature.exportToJson(temp)
 		
 		# terminal output
 		print utils.getTimeString(),'| tempC:',temp
