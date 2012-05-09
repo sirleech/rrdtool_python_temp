@@ -24,7 +24,12 @@ def exportToJson(temperature):
 	import utils
 	import json
 	f = open('sensors/temperature.json','w')
-	reading = {'unit':'degrees celcius','unitPrefix':'&deg;C','value': temperature, 'lastUpdated': utils.getTimeString()}
+	reading = {
+							'unit':'degrees celcius',
+							'unitPrefix':'&deg;C',
+							'value': temperature, 
+							'lastUpdated': utils.getTimeString()
+						}
 	f.write(json.dumps(reading))
 	f.close()
 	
@@ -39,6 +44,6 @@ def makePngGraph(graphTimeRange,outfile):
 		            '--start', str(nowUnixTime-graphTimeRange), 
 		            '--end', str(nowUnixTime),
 		            '--title','Temperature (degrees c)',
-		            '--width','800',
+		            '--width','700',
           		    'DEF:myspeed=temperature.rrd:temp:AVERAGE',
 		            'LINE2:myspeed#FF0000')   

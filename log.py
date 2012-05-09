@@ -14,7 +14,6 @@ loggingInterval = 15
 #infinite loop
 while (1):	
 	try:
-		value = 'N:'
 		temp = temperature.getValue()
 		utils.logDataPoint("temperature.rrd",temp)
 		temperature.makePngGraph(twelveHours,'web/temperature-12hrs.png')
