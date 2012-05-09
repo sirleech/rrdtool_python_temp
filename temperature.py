@@ -37,9 +37,10 @@ def getValue():
 	
 def exportToJson(temperature):
 	import utils
+	import json
 	f = open('sensors/temperature.json','r+')
-	string = '{"temperature":"' + str(temperature) + '","lastUpdated":' + '"' + utils.getTimeString() + '"}'
-	f.write(string)
+	reading = {'temperature': temperature, 'lastUpdated': utils.getTimeString()}
+	f.write(json.dumps(reading))
 	f.close()
 	
 def makePngGraph(graphTimeRange,outfile):
