@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Switch to False when a real Arduino is connected
-mock = True
+mock = False
 
 def getValue():
 	
@@ -40,7 +40,7 @@ def makePngGraph(graphTimeRange):
 	# graph temp
 	nowUnixTime = int(time.time())
 	
-	rrdtool.graph('temperature.png',
+	rrdtool.graph('web/temperature.png',
 		            '--start', str(nowUnixTime-graphTimeRange), 
 		            '--end', str(nowUnixTime),
 		            '--title','Temperature (degrees c)',
