@@ -20,7 +20,7 @@
 				client.onreadystatechange = function() {
 					 //alert(client.responseText);
 					 var temperatureReading = eval('(' + client.responseText + ')');
-					 document.getElementById("temp").innerHTML = temperatureReading.temperature;
+					 document.getElementById("temp").innerHTML = Math.round(temperatureReading.temperature*10)/10 +"c";
 					 document.getElementById("lastUpdated").innerHTML = temperatureReading.lastUpdated;
 				}
 				client.send();
@@ -46,8 +46,7 @@
 	<body>
 	
 			<div class="now">
-				<span id="temp"></span>C
-				<br/>
+				<h2 id="temp"></h2>
 				Last Updated <span id="lastUpdated"></span>
 			</div>
 			<img id="temperature-2hrs" src="temperature-2hrs.png"/>2 hours
