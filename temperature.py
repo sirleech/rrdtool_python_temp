@@ -23,7 +23,7 @@ def getValue():
 def exportToJson(temperature):
 	import utils
 	import json
-	f = open('sensors/temperature.json','r+')
+	f = open('sensors/temperature.json','w')
 	reading = {'temperature': temperature, 'lastUpdated': utils.getTimeString()}
 	f.write(json.dumps(reading))
 	f.close()
