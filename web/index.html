@@ -21,7 +21,7 @@
 					 //alert(client.responseText);
 					 var temperatureReading = eval('(' + client.responseText + ')');
 					 document.getElementById("temp").innerHTML = Math.round(temperatureReading.value*10)/10 + temperatureReading.unitPrefix;
-					 document.getElementById("lastUpdated").innerHTML = temperatureReading.value;
+					 document.getElementById("lastUpdated").innerHTML = temperatureReading.lastUpdated;
 				}
 				client.send();
 			}
