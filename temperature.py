@@ -3,32 +3,17 @@
 # Switch to False when a real Arduino is connected
 mock = False
 
-
+def getSerialSensorValue():
+		import serial
+		ser = serial.Serial('/dev/ttyUSB0', 38400)
+		valueString = ser.readline()
+		ser.close()		
+		return float(valueString)
 
 def getValue():
 	
 	if (mock == False):
-		import serial
-		trycount = 0
-		read = False
-		
-		# try to read the serial port 5 times in a row
-		tryAttempts = 5
-		while (read == False & trycount <= tryAttempts):
-				try:
-					ser = serial.Serial('/dev/ttyUSB0', 38400)
-					tempstring = ser.readline()
-					temp = float(tempstring)
-					ser.close()
-					read = True	
-				except serial.SerialException as e:
-					if (trycount >= tryAttempts):
-						raise e
-					import time
-					time.sleep(1)					
-				
-				trycount = trycount + 1
-				
+		temp = getSerialSensorValue()				
 	else:
 		import random
 		temp = random.uniform(20, 27)	
