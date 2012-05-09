@@ -5,4 +5,4 @@
 3. View the results in "index.html"!
 
 ## Requirements
-sudo apt-get install rrdtool python-rrd
+sudo apt-get install rrdtool python-rrd python-serial
