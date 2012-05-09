@@ -20,8 +20,8 @@
 				client.onreadystatechange = function() {
 					 //alert(client.responseText);
 					 var temperatureReading = eval('(' + client.responseText + ')');
-					 document.getElementById("temp").innerHTML = Math.round(temperatureReading.temperature*10)/10 +"c";
-					 document.getElementById("lastUpdated").innerHTML = temperatureReading.lastUpdated;
+					 document.getElementById("temp").innerHTML = Math.round(temperatureReading.value*10)/10 + temperatureReading.unitPrefix;
+					 document.getElementById("lastUpdated").innerHTML = temperatureReading.value;
 				}
 				client.send();
 			}
