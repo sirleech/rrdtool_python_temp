@@ -21,9 +21,9 @@ while (1):
 		print utils.getTimeString(),'| tempC:',temp
 		
 		
-	except serial.SerialException as e:
+	except Exception as e:
 		# terminal output
-		print utils.getTimeString(),'| tempC: SERIAL PORT NOT AVAILABLE', e
+		print utils.getTimeString(), e
 		
 	           
 	time.sleep(loggingInterval)
