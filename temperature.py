@@ -23,7 +23,7 @@ def getValue():
 					if (trycount >= tryAttempts):
 						raise e
 					import time
-					time.sleep(.2)					
+					time.sleep(1)					
 				
 				trycount = trycount + 1
 				

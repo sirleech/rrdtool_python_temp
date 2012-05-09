@@ -25,12 +25,13 @@ while (1):
 		print utils.getTimeString(),'| tempC:',temp
 		
 		# sleep
-		time.sleep(loggingInterval)
-		
 		
 	except Exception as e:
 		# terminal output
 		print utils.getTimeString(), e
+	
+	time.sleep(loggingInterval)
+
 		
 	           
 	
