@@ -7,10 +7,11 @@ def getValue():
 	
 	if (mock == False):
 		import serial
+
 		ser = serial.Serial('/dev/ttyUSB0', 38400)
 		tempstring = ser.readline()
 		temp = float(tempstring)
-		ser.close()	
+		ser.close()			
 	else:
 		import random
 		temp = random.uniform(20, 27)	

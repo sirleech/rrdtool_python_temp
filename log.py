@@ -2,6 +2,7 @@
 import time
 import utils
 import temperature
+import serial
 
 
 # constants
@@ -17,14 +18,13 @@ while (1):
 		temperature.makePngGraph(graphTimeRange)
 		
 		# terminal output
-		print ('tempC:'),	
-		print (temp),
-		utils.printTime()	
+		print utils.getTimeString(),'| tempC:',temp
 		
-	except Exception:
+		
+	except serial.SerialException as e:
 		# terminal output
-		print ('tempC: READING FAILED!!'),	
-		utils.printTime()		
+		print utils.getTimeString(),'| tempC: SERIAL PORT NOT AVAILABLE', e
+		
 	           
 	time.sleep(loggingInterval)
 

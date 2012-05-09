@@ -8,10 +8,10 @@
 # Print the Date/Time in a human readable form
 ##################################################
 
-def printTime():
+def getTimeString():
 	import datetime
 	now = datetime.datetime.now()
-	print now.strftime("%Y-%m-%d %H:%M")
+	return now.strftime("%Y-%m-%d %H:%M")
 
 ##################################################
 #
