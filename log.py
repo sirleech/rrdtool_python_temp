@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import rrdtool
 import time
 import utils
 import temperature
@@ -14,13 +13,14 @@ while (1):
 	try:
 		value = 'N:'
 		temp = temperature.getValue()
-		value += str(temp)
-		rrdtool.update('temperature.rrd',value)
+		utils.logDataPoint("temperature.rrd",temp)
 		temperature.makePngGraph(graphTimeRange)
+		
 		# terminal output
 		print ('tempC:'),	
 		print (temp),
 		utils.printTime()	
+		
 	except Exception:
 		# terminal output
 		print ('tempC: READING FAILED!!'),	
