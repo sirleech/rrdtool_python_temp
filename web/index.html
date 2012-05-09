@@ -20,6 +20,7 @@
 				client.onreadystatechange = function() {
 					 //alert(client.responseText);
 					 var temperatureReading = eval('(' + client.responseText + ')');
+					 document.getElementById("measure").innerHTML = temperatureReading.measure;
 					 document.getElementById("temp").innerHTML = Math.round(temperatureReading.value*10)/10 + temperatureReading.unitPrefix;
 					 document.getElementById("lastUpdated").innerHTML = temperatureReading.lastUpdated;
 				}
@@ -46,6 +47,7 @@
 	<body>
 	
 			<div class="now">
+				<h1 id="measure">(loading...)</h1>
 				<h1 id="temp">(loading...)</h1>
 				Last Updated <span id="lastUpdated"></span>
 			</div>

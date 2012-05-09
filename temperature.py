@@ -25,6 +25,7 @@ def exportToJson(temperature):
 	import json
 	f = open('sensors/temperature.json','w')
 	reading = {
+							'measure':'Shed Air Temperature',
 							'unit':'degrees celcius',
 							'unitPrefix':'&deg;C',
 							'value': temperature, 
