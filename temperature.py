@@ -8,7 +8,7 @@ def getSerialSensorValue():
 		import time
 		ser = serial.Serial('/dev/ttyUSB1', 38400)
 		ser.write('H')
-		time.sleep(.5)
+		time.sleep(.25)
 		valueString = ser.readline()
 		ser.close()		
 		return float(valueString)
