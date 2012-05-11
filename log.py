@@ -28,8 +28,6 @@ while (1):
 			print 'EXTRANEOUS READING! Reading is greater or less than',filterBracket,'degrees of the previous reading.'
 		else:	
 			utils.logDataPoint("temperature.rrd",temp)
-			# store the last temperature reading
-			lastTemp = temp
 			
 		# export the graphs, json
 		temperature.makePngGraph('Temp C 12 Hours',twelveHours,'web/temperature-12hrs.png')
@@ -39,6 +37,9 @@ while (1):
 		
 		# terminal output
 		print utils.getTimeString(),'| tempC:',temp
+		
+		# store the last temperature reading
+		lastTemp = temp
 		
 	except Exception as e:
 		# terminal output
